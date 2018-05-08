@@ -1,0 +1,35 @@
+*{margin:0;padding:0;}
+ul,ol,li{list-style: none;}
+
+.AppLeft{
+	width:200px;height: 400px;
+	background: #ededed;float: left;
+	margin-right: 10px;
+}
+
+.AppLeft li{
+	width: 90%;height: 30px;
+	background: #ccc;
+	margin:10px;
+	line-height: 30px;
+	font-size: 22px;
+	cursor: pointer;float: left;
+	clear: both;
+	font-family: "微软雅黑";
+	font-weight: normal;
+}
+.AppLeft li:hover{
+	background: #F1EDED;
+}
+.AppLeft li a{
+	text-decoration: none;
+}
+
+.AppRight{
+	float: left;width: 500px;
+	height: 300px;
+	background: #F1EDED;
+	color: #000;
+	font-size: 18px;line-height: 22px;
+	border:5px solid #ABABAB;
+}

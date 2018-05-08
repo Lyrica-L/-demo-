@@ -1,0 +1,53 @@
+/* base.css */
+body {margin:0; padding:0; font:14px/1.5 helvetica,arial,"Microsoft YaHei",\5b8b\4f53;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+table,td,tr,th{font-size:14px;}
+ol,ul {list-style:none;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;max-width: 100%; height:auto;}
+h1,h2,h4,h5,h6{font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i,var{font-weight:normal; font-style:normal;}
+.clearfix{*zoom:1;}
+.clearfix:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:".";}
+a:link,a:visited {color:#000;text-decoration: none;}
+input {outline: 0;outline: none;}
+/* 最外层 */
+.appWrap{
+    width:500px;
+    padding:8px;
+    margin:0 auto;
+    background: #D9D9D9;
+    text-align: center;
+}
+.appWrap h1{
+    width:100%;height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.appWrap table{
+    width:480px;
+    margin:0 auto;
+}
+/* 头部 搜索面板 */
+.headerDiv,.panelDiv{
+    margin-bottom: 20px;
+}
+/* 列表主体 panel */
+.panelDiv{
+    border:2px solid #498C94;
+}
+.panelDiv table thead th{
+    font-size: 16px;
+    font-weight: bold;
+}
+/* 底部 新增面板 */
+.footerDiv{
+    width:220px;
+    margin:0 auto;
+}
+.footerDiv li{
+    height:22px;
+    line-height: 22px;
+    text-align: left;
+}

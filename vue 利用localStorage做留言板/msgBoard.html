@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <title>Vue-Massage Board</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <h1 class="text-center">
+                <a href="#" class="">简易留言板(Vue)</a>
+            </h1>
+        </div>
+    </nav>
+</header>
+<div id="root">
+    <div class="container" style="margin-bottom:20px">
+        <input type="text"
+               class="form-control"
+               placeholder="请输入留言"
+               v-model="newMsg"
+        />
+        <br/>
+        <button class="btn btn-primary btn-block" v-on:click="msgSubmit">提交</button>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">留言列表</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="item in msgList">{{item.txt}}</li>
+                </ul>
+                <button class="btn btn-danger btn-block" v-on:click="msgClear">清空留言</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script>
+    var storageMsg = 'webfeel';
+    /*localStorage.clear();*/
+
+    var msgStorage = {
+        fetch(){
+            /*console.log(localStorage.getItem(storageMsg));*/
+            let msgobj = JSON.parse(localStorage.getItem(storageMsg)||'[]');
+            return msgobj;
+        },
+        save(newList){
+            localStorage.setItem(storageMsg,JSON.stringify(newList));
+            /*console.log(localStorage.getItem(storageMsg));*/
+        }
+    };
+
+    new Vue({
+        el:'#root',
+        data:{
+            newMsg:'',
+            msgList: msgStorage.fetch()
+        },
+        watch:{
+            msgList:{
+                handler(newList){
+                    msgStorage.save(newList);
+                },
+                deep:true
+            }
+        },
+        methods:{
+            msgSubmit(){
+                let nm = this.newMsg;
+
+                this.msgList.push({
+                    txt:nm
+                });
+
+                this.newMsg = '';
+            },
+            msgClear(){
+                this.msgList=[];
+            }
+        }
+    })
+</script>
+</body>
+</html>
