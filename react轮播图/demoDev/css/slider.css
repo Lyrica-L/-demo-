@@ -1,0 +1,37 @@
+/*******************************
+*name：轮播图（index）详细样式
+*date：2018/03/20
+*author：Liu Li
+*remarks：null
+*/
+
+*{margin:0;padding: 0;border:0;}ol,ul,li{list-style: none;}
+.slideWrap{
+	width:400px;height: 252px;position: relative;overflow: hidden;
+	margin:0 auto;border:1px solid #000;background: #ccc;
+}
+.slideWrap ul{
+	width:1600px;height: 212px;position: absolute;left: 0;top: 40px;
+}
+.slideWrap ul li{width:400px;height: 212px;float: left; }
+.slideWrap ul li img{width:400px;height: 212px;}
+.slideWrap label, .slideWrap span{
+	width:50px;height: 20px;position: absolute;top: 140px;
+	background: #11e56c;z-index: 11;cursor: pointer;
+}
+.slideWrap label{left: 0;}
+.slideWrap span{right: 0;}
+
+.pointer{
+	width: 100px;height: 20px;position: absolute;left: 50%;bottom: 10px;
+	background: #fff;z-index: 20;margin-left: -50px;border-radius: 10px;
+}
+.pointer ul{margin:0;padding:0;display: inline;position: static;}
+.pointer ul li{
+	width:10px;height: 10px;margin: 5px;float: left;border-radius: 100%;
+	background: #666;position: static;
+}
+.pointer ul li:hover{
+	background: #f00;cursor: pointer;
+}
+.pointer ul li.redLi{background: #f00!important}
