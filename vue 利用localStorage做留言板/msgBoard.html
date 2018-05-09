@@ -41,46 +41,44 @@
 <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script>
     var storageMsg = 'webfeel';
-    /*localStorage.clear();*/
 
     var msgStorage = {
         fetch(){
-            /*console.log(localStorage.getItem(storageMsg));*/
             let msgobj = JSON.parse(localStorage.getItem(storageMsg)||'[]');
             return msgobj;
         },
         save(newList){
-            localStorage.setItem(storageMsg,JSON.stringify(newList));
-            /*console.log(localStorage.getItem(storageMsg));*/
+            localStorage.setItem(storageMsg, JSON.stringify(newList));
         }
     };
 
     new Vue({
-        el:'#root',
-        data:{
-            newMsg:'',
+        el: '#root',
+        data: {
+            newMsg: '',
             msgList: msgStorage.fetch()
         },
-        watch:{
-            msgList:{
+        watch: {
+            msgList: {
                 handler(newList){
                     msgStorage.save(newList);
                 },
-                deep:true
+                deep: true
             }
         },
-        methods:{
+        methods: {
             msgSubmit(){
                 let nm = this.newMsg;
 
                 this.msgList.push({
-                    txt:nm
+                    txt: nm
                 });
 
                 this.newMsg = '';
             },
             msgClear(){
-                this.msgList=[];
+                localStorage.clear();
+                this.msgList=msgStorage.fetch();
             }
         }
     })
